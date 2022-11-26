@@ -21,7 +21,7 @@ const filter = {
   };  
 
 chrome.webNavigation.onCompleted.addListener(() => {
-    console.info("Hello World! - You've loaded google :)");
+    console.info("Hello World! - You've loaded google! :)");
   }, filter);
 
 chrome.runtime.onMessage.addListener(
@@ -36,6 +36,7 @@ chrome.runtime.onMessage.addListener(
   );
 
 chrome.action.onClicked.addListener((tab) => {
+    console.log("on clicked!");
     chrome.scripting.executeScript({
         target: { tabId: tab.id },
         files: ['color_changer.js']
